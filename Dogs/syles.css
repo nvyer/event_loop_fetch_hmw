@@ -1,0 +1,28 @@
+body {
+    background-color: #baf1de;
+}
+
+.wrapper {
+    margin-left: 29%;
+    background-color: #b4f1dc;
+    padding: 23px 100px;
+
+}
+
+.breed-container {
+    height: 35px;
+    width: 25%;
+    color: #467380;
+    border: 0px;
+    padding-left: 13px;
+    font-size: 17px;
+    font-weight: normal;
+    letter-spacing: 0.03rem;
+}
+
+.image-container {
+    width: auto;
+    height:auto;
+    text-align: center;
+    margin-top: 51px
+}

@@ -1,0 +1,45 @@
+.hidden {
+    display: none;
+}
+
+.search-container {
+    text-align: center;
+    margin-top: 20px
+}
+
+.select {
+    width: 333px;
+    height: 31px;
+}
+
+.search-btn {
+    height: 31px;
+    width: 74px;
+}
+
+.info-container {
+    /* display: flex; */
+    flex-direction: column;
+    margin-left: 35%;
+    margin-top: 40px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+span {
+    margin-left: 48px;
+}
+
+.description {
+    width:400px;
+}
+
+@media only screen and (max-width: 860px) {
+    .info-container {
+        margin-left: 26%
+    }
+}

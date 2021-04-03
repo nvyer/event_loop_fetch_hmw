@@ -1,0 +1,45 @@
+body {
+    background-color: #e1dcc5;
+}
+
+.search-container {
+    text-align: center;
+}
+
+.input {
+    font-size: 17px;
+    width: 410px;
+    height: 24px;
+    padding-left: 10px;
+    border: 1px solid #65d6d4;
+}
+
+.search-btn {
+    cursor: pointer;
+    margin-top: -5px;
+    font-size: 17px;
+    color: white;
+    width: 64px;
+    height: 28px;
+    border: 0px;
+    background-color: #65d6d4;
+}
+
+.loader-container{
+    text-align: center;
+    margin-top:15px;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-container {
+    text-align: center;
+    margin-top:30px;
+}
+
+.pagination-container {
+    text-align: center;
+}
