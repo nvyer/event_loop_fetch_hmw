@@ -25,6 +25,16 @@ function startTimer() {
     let minutes = Number(minutesInput.value);
     let seconds = Number(secondsInput.value);
 
+    if (hours === 0 && minutes === 0 && seconds === 0) {
+        let h = hours < 10 ? '0' + hours : hours;
+        let m = minutes < 10 ? '0' + minutes : minutes;
+        let s = seconds < 10 ? '0' + seconds : seconds;
+
+        container.classList.add('big-font');
+        container.innerHTML = `${h}:${m}:${s}`;
+        return
+    }
+
     if (seconds > 60) {
         seconds = 60;
         minutes += 1
@@ -63,8 +73,7 @@ function startTimer() {
         if (seconds === 0 && minutes === 0 && hours === 0) {
             clearInterval(interval);
         }
-
-    }, 5)
+    }, 1000)
 }
 
 resetBtn.addEventListener('focus', () => {
