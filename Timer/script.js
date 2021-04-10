@@ -1,25 +1,29 @@
-const timeInput = document.querySelector('.time-input');
+const hoursInput = document.querySelector('.hours');
+const minutesInput = document.querySelector('.minutes');
+const secondsInput = document.querySelector('.seconds');
+
 const startBtn = document.querySelector('.start-btn');
 const resetBtn = document.querySelector('.reset-btn');
 const container = document.querySelector('.time');
 
-timeInput.addEventListener('input', (event) => {
-    if (event.target.value.length > 5) {
-        timeInput.disabled = true;
-    }
-    if (event.target.value === '000000') {
-        startBtn.disabled = true;
-    }
+let time = [hoursInput, minutesInput, secondsInput];
+
+time.forEach((el) => {
+    el.addEventListener('input', (event) => {
+        if (event.target.value.length >= 2) {
+            el.disabled = true;
+        }
+    })
 })
 
 startBtn.addEventListener('click', startTimer);
 
 function startTimer() {
-    timeInput.classList.add('hidden');
+    time.forEach((el) => el.classList.add('hidden'));
 
-    let hours = Number(timeInput.value.slice(0, 2));
-    let minutes = Number(timeInput.value.slice(2, 4));
-    let seconds = Number(timeInput.value.slice(4, 6));
+    let hours = Number(hoursInput.value);
+    let minutes = Number(minutesInput.value);
+    let seconds = Number(secondsInput.value);
 
     if (seconds > 60) {
         seconds = 60;
@@ -39,6 +43,11 @@ function startTimer() {
 
         container.innerHTML = `${h}:${m}:${s}`;
 
+        if (seconds === 0) {
+            seconds = 60;
+            minutes--;
+        }
+
         seconds--;
 
         if (seconds === 0 && minutes !== 0) {
@@ -48,21 +57,21 @@ function startTimer() {
         if (seconds === 0 && minutes === 0 && hours !== 0) {
             seconds = 60;
             minutes = 60;
+            minutes--
             hours--
         }
         if (seconds === 0 && minutes === 0 && hours === 0) {
-            console.log('stopped');
             clearInterval(interval);
         }
 
-    }, 1000)
+    }, 5)
 }
 
 resetBtn.addEventListener('focus', () => {
     clearInterval(interval)
-    let hours = Number(timeInput.value.slice(0, 2));
-    let minutes = Number(timeInput.value.slice(2, 4));
-    let seconds = Number(timeInput.value.slice(4, 6));
+    let hours = Number(hoursInput.value);
+    let minutes = Number(minutesInput.value);
+    let seconds = Number(secondsInput.value);
 
     let h = hours < 10 ? '0' + hours : hours;
     let m = minutes < 10 ? '0' + minutes : minutes;
